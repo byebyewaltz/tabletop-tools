@@ -46,6 +46,7 @@ function doesStrikeHit(attack, ac) {
 function doesStrikeCrit(attack, ac) {
   return attack >= ac + 10;
   // TODO
+  /* this function checks if a strike is a critical hit by comparing the attack value to the target's armor class (AC). A strike is considered a critical hit if the attack value is at least 10 points higher than the AC. The function returns true if this condition is met, indicating a critical hit, and false otherwise. This allows us to determine not only if an attack hits but also if it hits with exceptional force, which can have additional effects in a game context. */
 }
 
 /**
