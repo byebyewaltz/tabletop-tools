@@ -95,6 +95,7 @@ function getProficiencyBonus(level, rank) {
  */
 function getCoverBonus(behindObstacle, takingCover) {
   // TODO
+  /* this function calculates the cover bonus to a creature's armor class (AC) based on whether the creature is behind an obstacle and whether it is actively taking cover. If the creature is behind an obstacle but not taking cover, it receives a +2 bonus to its AC. If the creature is actively taking cover while behind an obstacle, it receives a +4 bonus to its AC. If the creature is not behind an obstacle, it receives no bonus to its AC. The function uses conditional statements to determine the appropriate bonus based on the input parameters. */
 }
 
 /**
