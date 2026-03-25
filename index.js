@@ -80,6 +80,7 @@ function heal(maxHp, currentHp, healAmount) {
  */
 function getProficiencyBonus(level, rank) {
   // TODO
+  /* this function calculates a character's proficiency bonus based on their level and proficiency rank. The proficiency bonus is determined by a predefined table that assigns a bonus value to each rank: untrained (0), trained (level + 2), expert (level + 4), master (level + 6), and legendary (level + 8). The function takes the character's level and rank as input and returns the corresponding proficiency bonus according to the table. This allows characters to enhance their skill attempts based on their expertise in that skill. */
 }
 
 /**
