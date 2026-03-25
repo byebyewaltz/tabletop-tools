@@ -125,6 +125,7 @@ function getRemainingHp(maxHp, currentHp, damage) {
  */
 function canSee(light, vision) {
   // TODO
+  /* this function determines whether a creature can see based on the light conditions and the creature's vision type. The function checks the light condition (bright, dim, or dark) and the vision type (average, low-light, or dark). All creatures can see in bright light. Creatures with low-light vision can also see in dim light, while creatures with darkvision can see in all light conditions, including dark. The function uses conditional statements to evaluate these conditions and returns true if the creature can see under the given circumstances, and false otherwise. */
 }
 
 /**
