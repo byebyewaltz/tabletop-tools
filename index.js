@@ -20,6 +20,7 @@ console.log(canCastSpell(true, false)); // true
 function isHidden(hiding, aware) {
   return hiding || !aware;
   // TODO
+  /* this function determines whether a creature is hidden from an observer based on two conditions: whether the creature is actively hiding and whether the observer is aware of the creature. The function uses the logical OR operator (||) to return true if either condition is true. If the creature is actively hiding, it is hidden regardless of the observer's awareness. If the creature is not actively hiding but the observer is not aware of it, it is still hidden. The function will only return false if both conditions are false, meaning the creature is not hiding and the observer is aware of it. */
 }
 
 /**
