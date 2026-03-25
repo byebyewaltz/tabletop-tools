@@ -33,6 +33,7 @@ function isHidden(hiding, aware) {
 function doesStrikeHit(attack, ac) {
   return attack >= ac;
   // TODO
+  /* this function evaluates whether a strike hits a target based on the attack value and the target's armor class (AC). The function returns true if the attack value is greater than or equal to the AC, indicating that the strike successfully hits the target. If the attack value is less than the AC, the function returns false, meaning the strike misses. This simple comparison allows us to determine the outcome of an attack in a tabletop game scenario. */
 }
 
 /**
