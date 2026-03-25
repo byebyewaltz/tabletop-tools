@@ -112,6 +112,7 @@ function getCoverBonus(behindObstacle, takingCover) {
  */
 function getRemainingHp(maxHp, currentHp, damage) {
   // TODO
+  /* this function calculates the remaining hit points (HP) of a creature after taking damage. It first checks if the damage taken is greater than or equal to double the creature's maximum HP, in which case the creature dies instantly and the function returns -1. If the damage does not cause instant death but reduces the creature's HP to 0 or below, the function returns 0, indicating that the creature is unconscious or incapacitated. If the damage is less severe, the function subtracts the damage from the current HP and returns the remaining HP, ensuring that it does not go below 0 unless the creature is dead. */
 }
 
 /**
