@@ -6,9 +6,10 @@
  * @returns {boolean} whether the wizard can cast the spell
  */
 function canCastSpell(isSpellPrepared, hasScroll) {
-  // TODO
+  return isSpellPrepared || hasScroll;
+  /* this function assesses whether a wizard can cast a spell based on two conditions: whether the spell is prepared and whether the wizard has a scroll of the spell. The function uses the logical OR operator (||) to return true if either condition is true. If the spell is prepared, the wizard can cast it regardless of whether they have a scroll. If the spell is not prepared but the wizard has a scroll, they can still cast it. The function will only return false if both conditions are false, meaning the spell is not prepared and the wizard does not have a scroll. */
 }
-
+console.log(canCastSpell(true, false)); // true
 /**
  * A creature is hidden from an observer if it is actively hiding
  * or if the observer is not aware of it.
@@ -17,6 +18,7 @@ function canCastSpell(isSpellPrepared, hasScroll) {
  * @returns {boolean} whether the creature is hidden from the observer
  */
 function isHidden(hiding, aware) {
+  return hiding || !aware;
   // TODO
 }
 
@@ -28,6 +30,7 @@ function isHidden(hiding, aware) {
  * @returns {boolean} whether the strike hits
  */
 function doesStrikeHit(attack, ac) {
+  return attack >= ac;
   // TODO
 }
 
@@ -39,6 +42,7 @@ function doesStrikeHit(attack, ac) {
  * @returns {boolean} whether the strike is a critical hit
  */
 function doesStrikeCrit(attack, ac) {
+  return attack >= ac + 10;
   // TODO
 }
 
