@@ -140,4 +140,5 @@ function canSee(light, vision) {
  */
 function getStrikeDamage(attack, ac, damage) {
   // TODO
+  /* this function calculates the damage dealt by a strike based on whether it hits and whether it is a critical hit. It first checks if the strike hits using the doesStrikeHit function. If the strike does not hit, it returns 0 damage. If the strike hits, it then checks if it is a critical hit using the doesStrikeCrit function. If it is a critical hit, it returns double the normal damage; otherwise, it returns the normal damage. This allows us to determine the total damage dealt by a strike based on its success and critical status. */
 }
