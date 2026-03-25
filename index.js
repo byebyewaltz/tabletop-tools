@@ -59,6 +59,7 @@ function doesStrikeCrit(attack, ac) {
  */
 function heal(maxHp, currentHp, healAmount) {
   // TODO
+  /* this function calculates the total hit points (HP) of a creature after healing. It takes into account the creature's maximum HP, current HP, and the amount to heal. The function adds the heal amount to the current HP but ensures that the total does not exceed the maximum HP. If the sum of current HP and heal amount is greater than max HP, the function returns max HP; otherwise, it returns the sum. This ensures that a creature cannot have more HP than its defined maximum. */
 }
 
 /**
