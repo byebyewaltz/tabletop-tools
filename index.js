@@ -7,9 +7,8 @@
  */
 function canCastSpell(isSpellPrepared, hasScroll) {
   return isSpellPrepared || hasScroll;
-  /* this function assesses whether a wizard can cast a spell based on two conditions: whether the spell is prepared and whether the wizard has a scroll of the spell. The function uses the logical OR operator (||) to return true if either condition is true. If the spell is prepared, the wizard can cast it regardless of whether they have a scroll. If the spell is not prepared but the wizard has a scroll, they can still cast it. The function will only return false if both conditions are false, meaning the spell is not prepared and the wizard does not have a scroll. */
 }
-console.log(canCastSpell(true, false)); // true
+
 /**
  * A creature is hidden from an observer if it is actively hiding
  * or if the observer is not aware of it.
@@ -19,8 +18,6 @@ console.log(canCastSpell(true, false)); // true
  */
 function isHidden(hiding, aware) {
   return hiding || !aware;
-  // TODO
-  /* this function determines whether a creature is hidden from an observer based on two conditions: whether the creature is actively hiding and whether the observer is aware of the creature. The function uses the logical OR operator (||) to return true if either condition is true. If the creature is actively hiding, it is hidden regardless of the observer's awareness. If the creature is not actively hiding but the observer is not aware of it, it is still hidden. The function will only return false if both conditions are false, meaning the creature is not hiding and the observer is aware of it. */
 }
 
 /**
@@ -32,8 +29,6 @@ function isHidden(hiding, aware) {
  */
 function doesStrikeHit(attack, ac) {
   return attack >= ac;
-  // TODO
-  /* this function evaluates whether a strike hits a target based on the attack value and the target's armor class (AC). The function returns true if the attack value is greater than or equal to the AC, indicating that the strike successfully hits the target. If the attack value is less than the AC, the function returns false, meaning the strike misses. This simple comparison allows us to determine the outcome of an attack in a tabletop game scenario. */
 }
 
 /**
@@ -45,8 +40,6 @@ function doesStrikeHit(attack, ac) {
  */
 function doesStrikeCrit(attack, ac) {
   return attack >= ac + 10;
-  // TODO
-  /* this function checks if a strike is a critical hit by comparing the attack value to the target's armor class (AC). A strike is considered a critical hit if the attack value is at least 10 points higher than the AC. The function returns true if this condition is met, indicating a critical hit, and false otherwise. This allows us to determine not only if an attack hits but also if it hits with exceptional force, which can have additional effects in a game context. */
 }
 
 /**
@@ -58,8 +51,16 @@ function doesStrikeCrit(attack, ac) {
  * @returns {number} total hit points after healing
  */
 function heal(maxHp, currentHp, healAmount) {
-  // TODO
-  /* this function calculates the total hit points (HP) of a creature after healing. It takes into account the creature's maximum HP, current HP, and the amount to heal. The function adds the heal amount to the current HP but ensures that the total does not exceed the maximum HP. If the sum of current HP and heal amount is greater than max HP, the function returns max HP; otherwise, it returns the sum. This ensures that a creature cannot have more HP than its defined maximum. */
+  const hp = currentHp + healAmount;
+
+  if (hp > maxHp) {
+    return maxHp;
+  } else {
+    return hp;
+  }
+
+  // You can also use the ternary conditional operator (?:)
+  return hp > maxHp ? maxHp : hp;
 }
 
 /**
@@ -79,8 +80,23 @@ function heal(maxHp, currentHp, healAmount) {
  * @returns {number} the character's proficiency bonus
  */
 function getProficiencyBonus(level, rank) {
-  // TODO
-  /* this function calculates a character's proficiency bonus based on their level and proficiency rank. The proficiency bonus is determined by a predefined table that assigns a bonus value to each rank: untrained (0), trained (level + 2), expert (level + 4), master (level + 6), and legendary (level + 8). The function takes the character's level and rank as input and returns the corresponding proficiency bonus according to the table. This allows characters to enhance their skill attempts based on their expertise in that skill. */
+  if (rank === "untrained") {
+    return 0;
+  }
+
+  let bonus = 0;
+
+  if (rank === "trained") {
+    bonus = 2;
+  } else if (rank === "expert") {
+    bonus = 4;
+  } else if (rank === "master") {
+    bonus = 6;
+  } else if (rank === "legendary") {
+    bonus = 8;
+  }
+
+  return level + bonus;
 }
 
 /**
@@ -94,8 +110,16 @@ function getProficiencyBonus(level, rank) {
  * @returns {number} the cover bonus to AC
  */
 function getCoverBonus(behindObstacle, takingCover) {
-  // TODO
-  /* this function calculates the cover bonus to a creature's armor class (AC) based on whether the creature is behind an obstacle and whether it is actively taking cover. If the creature is behind an obstacle but not taking cover, it receives a +2 bonus to its AC. If the creature is actively taking cover while behind an obstacle, it receives a +4 bonus to its AC. If the creature is not behind an obstacle, it receives no bonus to its AC. The function uses conditional statements to determine the appropriate bonus based on the input parameters. */
+  if (!behindObstacle) {
+    return 0;
+  } else if (takingCover) {
+    return 4;
+  } else {
+    return 2;
+  }
+
+  // You can also nest ternary conditional operators
+  return behindObstacle ? (takingCover ? 4 : 2) : 0;
 }
 
 /**
@@ -111,8 +135,15 @@ function getCoverBonus(behindObstacle, takingCover) {
  * @returns {number} the creature's remaining HP after taking damage
  */
 function getRemainingHp(maxHp, currentHp, damage) {
-  // TODO
-  /* this function calculates the remaining hit points (HP) of a creature after taking damage. It first checks if the damage taken is greater than or equal to double the creature's maximum HP, in which case the creature dies instantly and the function returns -1. If the damage does not cause instant death but reduces the creature's HP to 0 or below, the function returns 0, indicating that the creature is unconscious or incapacitated. If the damage is less severe, the function subtracts the damage from the current HP and returns the remaining HP, ensuring that it does not go below 0 unless the creature is dead. */
+  const hp = currentHp - damage;
+
+  if (damage > maxHp * 2) {
+    return -1;
+  } else if (hp <= 0) {
+    return 0;
+  } else {
+    return hp;
+  }
 }
 
 /**
@@ -124,8 +155,15 @@ function getRemainingHp(maxHp, currentHp, damage) {
  * @returns {boolean} whether the creature can see
  */
 function canSee(light, vision) {
-  // TODO
-  /* this function determines whether a creature can see based on the light conditions and the creature's vision type. The function checks the light condition (bright, dim, or dark) and the vision type (average, low-light, or dark). All creatures can see in bright light. Creatures with low-light vision can also see in dim light, while creatures with darkvision can see in all light conditions, including dark. The function uses conditional statements to evaluate these conditions and returns true if the creature can see under the given circumstances, and false otherwise. */
+  if (light === "bright") {
+    return true;
+  } else if (light === "dim") {
+    return vision === "low-light" || vision === "dark";
+  } else if (light === "dark") {
+    return vision === "dark";
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -139,6 +177,9 @@ function canSee(light, vision) {
  * @returns {number} damage dealt by the strike
  */
 function getStrikeDamage(attack, ac, damage) {
-  // TODO
-  /* this function calculates the damage dealt by a strike based on whether it hits and whether it is a critical hit. It first checks if the strike hits using the doesStrikeHit function. If the strike does not hit, it returns 0 damage. If the strike hits, it then checks if it is a critical hit using the doesStrikeCrit function. If it is a critical hit, it returns double the normal damage; otherwise, it returns the normal damage. This allows us to determine the total damage dealt by a strike based on its success and critical status. */
+  if (!doesStrikeHit(attack, ac)) {
+    return 0;
+  }
+
+  return doesStrikeCrit(attack, ac) ? 2 * damage : damage;
 }
